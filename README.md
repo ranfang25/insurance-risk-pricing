@@ -1,8 +1,8 @@
 # 车险风险定价与客户分层
 
-基于 OpenML 法国机动车保险公开数据的可解释机器学习作品。项目覆盖保单与赔款关联、频率和赔款强度建模、纯风险保费预测、风险分层、模拟定价、漂移监控及交互式展示。原始需求说明保存在 [docs/project_brief.md](docs/project_brief.md)。
+本项目基于 OpenML 法国机动车保险公开数据，完整实现从保单与赔款关联、频率和赔款强度建模，到纯风险保费预测、风险分层、模拟定价、漂移监控及交互式分析的可复现流程。项目设计与验证说明见 [docs/project_brief.md](docs/project_brief.md)。
 
-> 该项目仅供求职展示和方法演示。建议保费、利润和赔付率是基于公开数据的模拟值，不构成真实保险报价或商业定价建议。
+> 核心模型指标与图表来自本机实际运行。公开数据不包含真实保费和经营费用，因此建议保费、利润与赔付率是基于明确假设的模拟指标，不构成保险公司的实际报价或商业定价建议。
 
 ## 数据和方法
 
@@ -37,8 +37,8 @@ input/processed/         解析后的本地数据，不进入 Git
 output/quick/            快速检查结果
 output/full/             全量结果
 tests/                   核心计算和关联测试
-docs/project_brief.md    原始接手说明
-app.py                   Streamlit 演示应用
+docs/project_brief.md    项目设计与验证说明
+app.py                   Streamlit 交互式分析应用
 ```
 
 每次运行都会输出模型、`metrics.json`（包含随机种子、校准系数与风险层阈值）、`model_params.json`、图表和以下 CSV：`model_metrics.csv`、`risk_calibration.csv`、`risk_tier_summary.csv`、`monitoring_summary.csv`、`shap_importance.csv`、`feature_effects.csv`、`scenario_summary.csv`、`policy_predictions_powerbi.csv`。大体积原始缓存、模型和保单级导出默认不纳入 Git。
@@ -55,7 +55,7 @@ Power BI 建议做五页：组合概览、风险分层、模型表现、SHAP 解
 | Tweedie GLM | 84.312 | 0.263 | 11,900,290 | 11,868,104 |
 | LightGBM Tweedie（训练集校准后） | 82.125 | 0.328 | 11,921,397 | 11,868,104 |
 
-LightGBM 在本次随机测试划分上的偏差指标和排序指标均优于两个 GLM 基线；十分位校准图显示中间分位仍存在局部偏差，不能只凭总体赔款接近就认为各客群已准确校准。SHAP 全局重要性中，`BonusMalus`、驾驶员年龄、车龄、地区密度排名靠前；分箱影响见 `feature_effects.csv`，只反映模型关联，不应解释为因果关系。任何简历中的数字和技术描述，应逐项与这里的实际结果核对。
+LightGBM 在本次随机测试划分上的偏差指标和排序指标均优于两个 GLM 基线；十分位校准图显示中间分位仍存在局部偏差，不能只凭总体赔款接近就认为各客群已准确校准。SHAP 全局重要性中，`BonusMalus`、驾驶员年龄、车龄、地区密度排名靠前；分箱影响见 `feature_effects.csv`，只反映模型关联，不应解释为因果关系。文中的样本量和指标均可在 `output/full/` 中核对。
 
 ## 限制
 

@@ -119,7 +119,7 @@ def run(mode: str) -> dict:
     reference["predicted_pure_premium"] = train_score
     monitor = monitoring_table(reference, scored)
 
-    # 将高风险样本加权复制，构造仅供演示的组合结构漂移。
+    # 将高风险样本加权复制，构造模拟的组合结构漂移。
     high = scored[scored["risk_tier"] >= 4].sample(frac=0.5, random_state=SEED)
     shifted_monitor = monitoring_table(reference, pd.concat([scored, high], ignore_index=True))
     shifted_monitor["scenario"] = "high_risk_shift"
@@ -261,7 +261,7 @@ def run(mode: str) -> dict:
         "risk_tier_cutpoints": np.quantile(train_score, [0.2, 0.4, 0.6, 0.8]).tolist(),
         "expense_ratio": 0.20,
         "risk_loading": 0.30,
-        "pricing_notice": "求职作品模拟方案，并非真实保险报价",
+        "pricing_notice": "基于公开数据与假设的模拟定价，并非实际保险报价",
         "notes": "纯风险保费及观察赔款率按暴露期计算；测试集仅用于评估。",
     }
     (result_dir / "metrics.json").write_text(

@@ -35,6 +35,6 @@
   ],
   "expense_ratio": 0.2,
   "risk_loading": 0.3,
-  "pricing_notice": "求职作品模拟方案，并非真实保险报价",
+  "pricing_notice": "基于公开数据与假设的模拟定价，并非实际保险报价",
   "notes": "纯风险保费及观察赔款率按暴露期计算；测试集仅用于评估。"
 }

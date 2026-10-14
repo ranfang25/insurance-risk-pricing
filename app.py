@@ -8,7 +8,7 @@ import streamlit as st
 ROOT = Path(__file__).parent
 st.set_page_config(page_title="车险风险定价与客户分层", layout="wide")
 st.title("车险风险定价与客户分层")
-st.caption("求职作品中的模拟定价方案，并非真实保险报价。")
+st.caption("基于公开数据的风险分层与模拟定价；并非保险公司的实际报价。")
 mode = st.sidebar.selectbox("运行结果", ["full", "quick"])
 folder = ROOT / "output" / mode
 if not (folder / "metrics.json").exists():
