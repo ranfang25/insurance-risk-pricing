@@ -1,0 +1,11 @@
+feature,psi,scenario
+DrivAge,0.0010923298074630046,baseline
+VehAge,0.0017930936413989135,baseline
+BonusMalus,0.0010129912703357635,baseline
+Density,0.0018138502797274698,baseline
+predicted_pure_premium,0.0047696481394656435,baseline
+DrivAge,0.004133911491897618,high_risk_shift
+VehAge,0.005761265011886199,high_risk_shift
+BonusMalus,0.006138091632340273,high_risk_shift
+Density,0.006672432047334086,high_risk_shift
+predicted_pure_premium,0.05887584052993176,high_risk_shift

@@ -1,0 +1,40 @@
+{
+  "mode": "quick",
+  "python_version": "3.12.14",
+  "package_versions": {
+    "numpy": "2.5.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "narwhals": "2.27.1",
+    "lightgbm": "4.7.0",
+    "shap": "0.53.0",
+    "streamlit": "1.65.0"
+  },
+  "seed": 42,
+  "tweedie_power": 1.5,
+  "full_dataset_policies": 678013,
+  "used_policies": 30000,
+  "data_quality": {
+    "raw_policies": 678013,
+    "removed_missing_or_invalid": 0,
+    "source_claim_records": 26639,
+    "claim_records_without_valid_policy": 195
+  },
+  "train_policies": 24000,
+  "test_policies": 6000,
+  "positive_claim_policies_in_train": 877,
+  "reported_claims_all": 1529,
+  "matched_claim_records_all": 1156,
+  "matched_claim_ratio_train": 0.7607811228641171,
+  "lightgbm_train_calibration_factor": 2.0916427557482944,
+  "risk_tier_cutpoints": [
+    12.192635292073385,
+    32.122972135683895,
+    66.00954521126701,
+    144.38441122457832
+  ],
+  "expense_ratio": 0.2,
+  "risk_loading": 0.3,
+  "pricing_notice": "求职作品模拟方案，并非真实保险报价",
+  "notes": "纯风险保费及观察赔款率按暴露期计算；测试集仅用于评估。"
+}

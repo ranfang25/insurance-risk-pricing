@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "insurance-risk-pricing"
+version = "0.1.0"
+description = "可复现的法国车险风险定价与客户分层演示"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "pandas>=2.2,<2.4",
+  "numpy>=1.26,<3",
+  "scikit-learn>=1.6,<1.8",
+  "narwhals>=1.30,<3",
+  "lightgbm>=4.5,<5",
+  "shap>=0.47,<1",
+  "streamlit>=1.44,<2",
+  "matplotlib>=3.9,<4",
+  "joblib>=1.4,<2",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.3,<9", "ruff>=0.11,<1"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["code/insurance_pricing"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".tools", ".uv-cache", ".venv", "input", "output"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
